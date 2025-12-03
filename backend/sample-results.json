@@ -1,0 +1,20 @@
+[
+  {
+    "usn": "4MW23CS140",
+    "name": "Demo Student A",
+    "sem": 3,
+    "results": [
+      { "subject": "Data Structures", "code": "CS301", "internal": 25, "external": 60, "total": 85, "grade": "A+" },
+      { "subject": "OOP", "code": "CS302", "internal": 24, "external": 59, "total": 83, "grade": "A" }
+    ]
+  },
+  {
+    "usn": "4MW23CS141",
+    "name": "Demo Student B",
+    "sem": 3,
+    "results": [
+      { "subject": "Data Structures", "code": "CS301", "internal": 20, "external": 50, "total": 70, "grade": "B" },
+      { "subject": "OOP", "code": "CS302", "internal": 19, "external": 48, "total": 67, "grade": "B" }
+    ]
+  }
+]
