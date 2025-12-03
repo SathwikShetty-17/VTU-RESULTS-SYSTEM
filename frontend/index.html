@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VTU Examination Results System</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .card { border: 1px solid #ddd; padding: 20px; border-radius: 6px; max-width: 600px; }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; }
+    pre { background: #f5f5f5; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<h1>VTU Examination Results System (Demo)</h1>
+
+<div class="card">
+  <h3>Enter Your USN</h3>
+  <input id="usn" placeholder="e.g., 4MW23CS140" />
+
+  <button id="fetchBtn">Fetch Result</button>
+
+  <h3>Result:</h3>
+  <pre id="output">No result yet.</pre>
+</div>
+
+<script>
+  const apiUrl = "/backend/sample-results.json";
+
+  document.getElementById("fetchBtn").onclick = async () => {
+    const usn = document.getElementById("usn").value.trim();
+    if(!usn){
+      document.getElementById("output").innerText = "Enter USN!";
+      return;
+    }
+
+    try{
+      const r = await fetch(apiUrl);
+      const data = await r.json();
+      const match = data.find(d => d.usn === usn);
+
+      if(!match){
+        document.getElementById("output").innerText = "No record found!";
+        return;
+      }
+
+      document.getElementById("output").innerText = JSON.stringify(match, null, 2);
+    }
+    catch(err){
+      document.getElementById("output").innerText = "Error fetching data.";
+    }
+  };
+</script>
+
+</body>
+</html>
